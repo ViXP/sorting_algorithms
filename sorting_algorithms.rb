@@ -47,6 +47,15 @@ class Array
     self
   end
 
+  # Counting Sort algorithm implementation
+  def counting_sort
+    intermed, final = [], []
+    each {|el| intermed[el] = intermed[el] ? intermed[el] + 1 : 1 }
+    intermed.each_with_index {|v,k| intermed[k] = (k > 0) ? intermed[k-1].to_i + v.to_i : v.to_i}.reject(&:nil?)
+    each {|el| final[intermed[el]] = el}
+    final.reject(&:nil?)
+  end
+
   # Radix Sort algorithm implementation
   def radix_sort
     each { |el| size = (size || 0 < el.to_s.length) ? size || 0 : el.to_s.length }
@@ -87,5 +96,6 @@ p [12, 1, 8, 6, 15, 18, 4, 9, 75, 15, 10, 2, 3, 5, 15].quick_sort
 p [12, 1, 8, 6, 15, 18, 4, 9, 75, 15, 10, 2, 3, 5, 15].merge_sort
 p [12, 1, 8, 6, 15, 18, 4, 9, 75, 15, 10, 2, 3, 5, 15].bubble_sort
 p [12, 1, 8, 6, 15, 18, 4, 9, 75, 15, 10, 2, 3, 5, 15].insertion_sort
+p [12, 1, 8, 6, 0, 15, 18, 115, 1117562, 4, 9, 75, 15, 10, 2, 3, 5, 15].counting_sort
 p [12, 1, 8, 6, 15, 18, 115, 1117562, 4, 9, 75, 15, 10, 2, 3, 5, 15].radix_sort
 p ['a', 'd', 'gg', 'global', 'cool', 'nice', 'wtf', 5, 8, 0].radix_sort
