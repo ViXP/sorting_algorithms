@@ -7,11 +7,11 @@ If you have any comments, or suggestions, please mail me: cyrilvixp@gmail.com or
 # Theoretical summary
 ## Quicksort (partition exchange sort)
 ### Best performance
-`Ω(n)`
+`Ω(n * log(n))`
 ### Worst performance
 `O(n^2)`
 ### Average performance
-`Θ(n * log(n))`
+`Θ(n)`
 ### Algorithm
 The random element of array is taken as a sample, then every element from the array (from beginning to end) compares to this sample. If current element is greater than sample, it moves to the end of an array, if it is less than sample - it moves to the beginning of an array. When the process is finished, the same algorithm must be recursively repeated for the part of array which stands to the left of the sample, and for the part which stands to the right of the sample. Whole process of crushing and comparison repeats until the size of remaining arrays will be 1, then the sorting process will be finished
 ***
